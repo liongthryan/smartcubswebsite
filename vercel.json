@@ -1,0 +1,15 @@
+
+{
+  "builds": [
+    {
+      "src": "dist/server/node-build.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dist/server/node-build.mjs"
+    }
+  ]
+}
