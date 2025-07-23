@@ -14,8 +14,13 @@ import {
   Mail,
   Linkedin,
 } from "lucide-react";
+import logo from "./logo.png";
+import astar from "./astar.png";
+import { useState } from 'react';
 
 export default function Index() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <div className="min-h-screen bg-white font-merriweather-sans">
       {/* Hero Section */}
@@ -26,32 +31,29 @@ export default function Index() {
 
         <div className="relative max-w-7xl mx-auto px-8 pt-20 pb-32">
           {/* Header */}
-          <header className="flex justify-between items-center mb-32">
-            <div className="flex items-center gap-4">
-              <div className="w-22 h-24 bg-purple-100 rounded-lg flex items-center justify-center">
-                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
-                  <div className="w-6 h-6 bg-white rounded-sm"></div>
-                </div>
-              </div>
+          <header className="flex justify-center items-center gap-14 mb-20 p-4 border border-transparent">
+              {/* Smart Cubs Logo */}
               <div>
-                <div className="text-2xl font-bold text-gray-900">
-                  Smart Cubs
-                </div>
+                <img 
+                  src={logo} 
+                  alt="Smart Cubs Logo" 
+                  className="h-19 w-auto" 
+                />
               </div>
-            </div>
-            <div className="flex items-center gap-12">
+
+              {/* A*STAR Logo */}
               <div className="text-center">
                 <div className="text-lg font-bold text-gray-400 mb-3">
                   Supported by:
                 </div>
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ec9ff2efab860a956c20670cb480ba5bcbae73b3?width=411"
+                  src={astar}
                   alt="A*STAR Logo"
                   className="h-19 w-auto"
                 />
               </div>
-            </div>
           </header>
+
 
           {/* Hero Content */}
           <div className="text-center max-w-5xl mx-auto">
@@ -76,16 +78,35 @@ export default function Index() {
           {/* Video Preview */}
           <div className="mt-20 max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl shadow-2xl p-8">
-              <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-xl p-32 text-center relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Button className="bg-purple-600 hover:bg-purple-700 w-16 h-16 rounded-full">
-                    <Play className="h-8 w-8 text-white" />
-                  </Button>
-                </div>
-                <div className="mt-8">
-                  <div className="text-gray-600 text-sm">
-                    AI Assistant Observing Preschool Classroom
+              {/* Video Player Section */}
+              <div className="relative rounded-xl overflow-hidden aspect-video bg-gradient-to-br from-purple-100 to-blue-100">
+                {!showVideo ? (
+                  // The Preview State (what you see first)
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                    onClick={() => setShowVideo(true)}
+                  >
+                    <Button className="bg-purple-600 hover:bg-purple-700 w-16 h-16 rounded-full pointer-events-none">
+                      <Play className="h-8 w-8 text-white" />
+                    </Button>
                   </div>
+                ) : (
+                  // The Video Player State (what you see after clicking)
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=r3_WtaPq-c40cY3I"
+                    title="AI Assistant Video Preview"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                )}
+              </div>
+              
+              {/* Description Text Section - Now safely outside */}
+              <div className="mt-4 text-center">
+                <div className="text-gray-600 text-sm">
+                  AI Assistant Observing Preschool Classroom
                 </div>
               </div>
             </div>
