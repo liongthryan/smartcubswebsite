@@ -600,10 +600,16 @@ export default function Index() {
             incident reporting process.
           </p>
 
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg mb-8">
-            <Calendar className="mr-2 h-5 w-5" />
-            Book a Demo
-          </Button>
+          <a
+            href="https://calendly.com/smartcubs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg mb-8">
+              <Calendar className="mr-2 h-5 w-5" />
+              Book a Demo
+            </Button>
+          </a>
 
           <div className="border-t border-gray-200 pt-8">
             <div className="flex justify-center items-center gap-16 opacity-60">
