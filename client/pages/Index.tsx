@@ -69,7 +69,9 @@ export default function Index() {
               children.
             </p>
 
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg">
+            <Button 
+              onClick={() => window.open("https://calendly.com/smartcubs", "_blank")}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg">
               Book a Demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -600,16 +602,13 @@ export default function Index() {
             incident reporting process.
           </p>
 
-          <a
-            href="https://calendly.com/smartcubs"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Button
+            onClick={() => window.open("https://calendly.com/smartcubs", "_blank")}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg mb-8"
           >
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg mb-8">
-              <Calendar className="mr-2 h-5 w-5" />
-              Book a Demo
-            </Button>
-          </a>
+            <Calendar className="mr-2 h-5 w-5" />
+            Book a Demo
+          </Button>
 
           <div className="border-t border-gray-200 pt-8">
             <div className="flex justify-center items-center gap-16 opacity-60">
